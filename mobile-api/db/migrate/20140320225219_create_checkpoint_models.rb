@@ -10,6 +10,10 @@ class CreareCheckpointModels < ActiveRecord::Migration
     end
 
     create_table :checkpoints_checkpoint_associations do |t|
+      t.integer  :node_a
+      t.integer  :node_b
+      t.integer  :followed
+      t.datetime :last_visited
       t.timestamps
     end
 
