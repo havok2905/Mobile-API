@@ -5,6 +5,7 @@ class CreareCheckpointModels < ActiveRecord::Migration
       t.string   :longitude
       t.string   :name
       t.text     :description
+      t.integer  :followed
       t.datetime :last_visited
       t.timestamps
     end
