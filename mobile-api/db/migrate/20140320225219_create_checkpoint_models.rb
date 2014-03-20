@@ -1,10 +1,11 @@
 class CreareCheckpointModels < ActiveRecord::Migration
   def change
     create_table :checkpoints_checkpoints do |t|
-      t.string :latitude
-      t.string :longitude
-      t.string :name
-      t.text   :description
+      t.string   :latitude
+      t.string   :longitude
+      t.string   :name
+      t.text     :description
+      t.datetime :last_visited
       t.timestamps
     end
 
