@@ -8,16 +8,16 @@ This is the API for the game manager Mobile.
 ##GAME
 
 ###GET
-* game/<id>/
-* games/<users>/
-* games/<latitude>/<longitude>/<range>/
-* checkpoint/<id>/
-* checkpoints/<game>/
-* checkpoint/<latitude>/<longitude>/
-* possible_next_checkpoints/<checkpoint>/
-* previous_checkpoint/<checkpoint>/
-* story/<id>/
-* stories/<checkpoint>/
+* game/id/
+* games/users/
+* games/latitude>/longitude/range/
+* checkpoint/id/
+* checkpoints/game/
+* checkpoint/latitude/longitude/
+* possible_next_checkpoints/checkpoint/
+* previous_checkpoint/checkpoint/
+* story/id/
+* stories/checkpoint/
 
 ###PUT
 
@@ -28,11 +28,11 @@ This is the API for the game manager Mobile.
 ##ADMIN
 
 ###GET
-* game/<id>/
+* game/id/
 * games/
-* checkpoint/<id>/
+* checkpoint/id/
 * checkpoints/
-* story/<id>/
+* story/id/
 * stories/
 
 ###PUT
