@@ -10,7 +10,7 @@ This is the API for the game manager Mobile.
 ###GET
 * game/id/
 * games/users/
-* games/latitude>/longitude/range/
+* games/latitude/longitude/range/
 * checkpoint/id/
 * checkpoints/game/
 * checkpoint/latitude/longitude/
