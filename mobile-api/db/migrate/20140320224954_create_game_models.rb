@@ -1,6 +1,6 @@
 class CreateGameModels < ActiveRecord::Migration
   def change
-    create_table :games_games do |t|
+    create_table :games do |t|
       t.string :name
       t.text   :description
       t.timestamps
