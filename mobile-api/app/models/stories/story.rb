@@ -1,3 +1,3 @@
 class Stories::Story < ModelBase
-  has_many :checkpoints_checkpoint_conditions
+  belongs_to :condition, class_name: 'Checkpoints::CheckpointCondition'
 end

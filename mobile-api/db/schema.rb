@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20140320225630) do
     t.datetime "updated_at"
   end
 
+  create_table "checkpoint_associations_checkpoint_conditions", force: true do |t|
+    t.integer "checkpoint_id"
+    t.integer "checkpoint_condition_id"
+  end
+
+  create_table "checkpoint_associations_checkpoints", force: true do |t|
+    t.integer "checkpoint_id"
+    t.integer "checkpoint_association_id"
+  end
+
   create_table "checkpoint_conditions", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -38,7 +48,6 @@ ActiveRecord::Schema.define(version: 20140320225630) do
     t.integer  "game_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "checkpont_conditions_id"
   end
 
   add_index "checkpoints", ["game_id"], name: "index_checkpoints_on_game_id"

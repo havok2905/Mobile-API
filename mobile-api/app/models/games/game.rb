@@ -1,3 +1,3 @@
 class Games::Game < ModelBase
-  belongs_to :checkpoints_checkpoints
+  has_many :checkpoints, class_name: 'Checkpoints::Checkpoint'
 end

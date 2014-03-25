@@ -12,18 +12,27 @@ class CreateCheckpointModels < ActiveRecord::Migration
     end
     add_index :checkpoints, :game_id
 
-    create_table   :checkpoint_associations do |t|
-      t.integer    :followed
-      t.datetime   :last_visited
+    create_table :checkpoint_associations do |t|
+      t.integer  :followed
+      t.datetime :last_visited
       t.timestamps
     end
 
     create_table :checkpoint_conditions do |t|
-      t.string  :name
-      t.text    :description
-      t.boolean :achieved
+      t.string   :name
+      t.text     :description
+      t.boolean  :achieved
       t.timestamps
     end
-    add_reference :checkpoints, :checkpont_conditions
+
+    create_table :checkpoint_associations_checkpoints do |t|
+      t.integer  :checkpoint_id
+      t.integer  :checkpoint_association_id
+    end
+
+    create_table :checkpoint_associations_checkpoint_conditions do |t|
+      t.integerr :checkpoint_id
+      t.integer  :checkpoint_condition_id
+    end
   end
 end
