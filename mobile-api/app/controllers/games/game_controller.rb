@@ -1,10 +1,10 @@
-class Games::GamesController < ApplicationController
+class Games::GameController < ApplicationController
 
   # Return all Games::Game objects in the database
   #
   # @type    GET
   # @returns JSON response with all Games::Game objects
-  def get_all
+  def index
     @games = Games::Game.all
 
     respond_to do | format |
@@ -18,8 +18,9 @@ class Games::GamesController < ApplicationController
   # @type    GET
   # @param   id
   # @returns JSON response with a Games::Game object
-  def get_by_id
-    @game = Games::Game.where ( id: params[:id] ).last
+  def show
+    @game = Games::Game.where( id:params[:id] ).all
+
 
     respond_to do | format |
       format.json { render json: @game }
@@ -77,13 +78,13 @@ class Games::GamesController < ApplicationController
   # @param   game
   # @returns JSON response with the newly updated Games::Game object
   def update
-    @game = Games::Game.where ( id: params[:id] )
+    @game = Games::Game.where( id:params[:id] )
 
     respond_to do | format |
       if @game.update_attributes ( params[:games_game] )
         format.json { render json: @game }
       else
-        format.json { render json: { @game.errors.full_messages, status: 422 } }
+        format.json { render json: { errors: @game.errors.full_messages, status: 422 } }
       end
     end
   end
@@ -101,7 +102,7 @@ class Games::GamesController < ApplicationController
       if @game.destroy
         format.json { render json: @game }
       else
-        format.json { render json: { @game.errors.full_messages, status: 422 } }
+        format.json { render json: { errors: @game.errors.full_messages, status: 422 } }
       end
     end
   end
@@ -119,8 +120,8 @@ class Games::GamesController < ApplicationController
   # @param   longitude
   # @param   range
   # @returns boolean
-  def in_circle_bounds? ( @center_x, @center_y, @x, @y, @radius )
-    ( ( @x - @center_x )**2 ) + ( ( @y - @center_y )**2 ) < @radius**2
+  def self.in_circle_bounds?( center_x, center_y, x, y, radius )
+    ( ( x - center_x )**2 ) + ( ( y - center_y )**2 ) < radius**2
   end
 
 
@@ -130,8 +131,8 @@ class Games::GamesController < ApplicationController
   # @param   longitude
   # @param   range
   # @returns boolean
-  def on_circle_bounds? ( @center_x, @center_y, @x, @y, @radius )
-    ( ( @x - @center_x )**2 ) + ( ( @y - @center_y )**2 ) == @radius**2
+  def self.on_circle_bounds?( center_x, center_y, x, y, radius )
+    ( ( x - center_x )**2 ) + ( ( y - center_y )**2 ) == radius**2
   end
 
 
@@ -141,8 +142,8 @@ class Games::GamesController < ApplicationController
   # @param   longitude
   # @param   range
   # @returns boolean
-  def out_circle_bounds? ( @center_x, @center_y, @x, @y, @radius )
-    ( ( @x - @center_x )**2 ) + ( ( @y - @center_y )**2 ) > @radius**2
+  def self.out_circle_bounds?( center_x, center_y, x, y, radius )
+    ( ( x - center_x )**2 ) + ( ( y - center_y )**2 ) > radius**2
   end
 
 end
