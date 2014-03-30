@@ -1,9 +1,8 @@
 MobileApi::Application.routes.draw do
 
   namespace :games do
-    resources :game do
-      get 'game_by_location/:latitude/:longitude/:range', to: 'games#get_by_location', as: 'game_by_location'
-    end
+    match 'game_by_location/:latitude/:longitude/:range', to: 'game#get_by_location', as: 'game_by_location', via: 'get'
+    resources :game
   end
 
 

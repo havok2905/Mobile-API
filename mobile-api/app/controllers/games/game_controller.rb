@@ -36,18 +36,16 @@ class Games::GameController < ApplicationController
   # @param   range
   # @returns JSON response with an array of Games::Game objects
   def get_by_location
-    @center_x = @params[:latitude]
-    @center_y = @params[:longitude]
-    @radius   = @params[:range]
+    @center_x = params[:latitude]
+    @center_y = params[:longitude]
+    @radius   = params[:range]
 
     @games = Games::Game.select { | game |
       in_circle_bounds? @center_x, @center_y, game.latitude, game.longitude, @radius
     }
 
     respond_to do | format |
-      if @game.save
-        format.json { render json: @checkpoints }
-      end
+      format.json { render json: @games }
     end
 
   end
