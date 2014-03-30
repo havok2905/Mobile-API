@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20140320225630) do
   create_table "games", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.string   "latitude"
+    t.string   "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
