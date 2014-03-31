@@ -22,6 +22,7 @@ describe Games::GameController, :type => :controller do
     @game_one = FactoryGirl.create(:game)
     @game_two = FactoryGirl.create(:game)
     @games = [@game_one, @game_two]
+    @location_circle = { latitude: 28.594497999999998, longitude: -81.283683, range: 50 }
   end
 
 
@@ -46,7 +47,7 @@ describe Games::GameController, :type => :controller do
 
   describe 'GET #get_by_location' do
     it "Responds with a valid list of games in range" do
-      get :get_by_location, { latitude: 28.594497999999998, longitude: 81.283683, range: 20 }
+      get :get_by_location, @location_circle
       @games_response = JSON.parse(response.body)
       response_game_comparison @game_one, @games_response.first
       response_game_comparison @game_two, @games_response.second
