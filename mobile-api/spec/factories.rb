@@ -4,16 +4,16 @@ FactoryGirl.define do
   factory :game, class: Games::Game do
     name 'Lorem Ipsum'
     description 'Lorem ipsum dolor set amet lorem ipsum dolor set amet lorem'
-    latitude '28.600000'
-    longitude '-81.339235'
+    latitude 28.600000
+    longitude -81.339235
   end
 
   # Checkpoint models
   factory :checkpoint, class: Checkpoints::Checkpoint do
     name 'Lorem Ipsum'
     description 'Lorem ipsum dolor set amet lorem ipsum dolor set amet lorem'
-    latitude '28.600000'
-    longitude '-81.339235'
+    latitude 28.600000
+    longitude -81.339235
     followed 0
     last_visited '2007-12-04 00:00:00'
   end

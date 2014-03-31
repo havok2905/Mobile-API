@@ -5,10 +5,10 @@ class Games::GameController < ApplicationController
   # @type    GET
   # @returns JSON response with all Games::Game objects
   def index
-    @games = Games::Game.all
+    @game = Games::Game.all
 
     respond_to do | format |
-      format.json { render json: @games }
+      format.json { render json: @game }
     end
   end
 
@@ -19,11 +19,10 @@ class Games::GameController < ApplicationController
   # @param   id
   # @returns JSON response with a Games::Game object
   def show
-    @game = Games::Game.where( id:params[:id] ).all
-
+    @games = Games::Game.where( id:params[:id] ).all
 
     respond_to do | format |
-      format.json { render json: @game }
+      format.json { render json: @games }
     end
   end
 
@@ -106,8 +105,6 @@ class Games::GameController < ApplicationController
   end
 
 
-  private
-
   ## I totally ripped these formulas from online without testing them
   ## This will probably bite me in the ass later :/
   ## Will break these out into a map handling class later after I'm sure they work
@@ -118,8 +115,11 @@ class Games::GameController < ApplicationController
   # @param   longitude
   # @param   range
   # @returns boolean
-  def self.in_circle_bounds?( center_x, center_y, x, y, radius )
-    ( ( x - center_x )**2 ) + ( ( y - center_y )**2 ) < radius**2
+  def in_circle_bounds?( center_x, center_y, x, y, radius )
+    center_x = center_x.to_f
+    center_y = center_y.to_f
+    radius = radius.to_f
+    ( x - center_x )**2 + ( y - center_y )**2 < radius**2
   end
 
 
@@ -129,8 +129,11 @@ class Games::GameController < ApplicationController
   # @param   longitude
   # @param   range
   # @returns boolean
-  def self.on_circle_bounds?( center_x, center_y, x, y, radius )
-    ( ( x - center_x )**2 ) + ( ( y - center_y )**2 ) == radius**2
+  def on_circle_bounds?( center_x, center_y, x, y, radius )
+    center_x = center_x.to_f
+    center_y = center_y.to_f
+    radius = radius.to_f
+    ( x - center_x )**2 + ( y - center_y )**2 == radius**2
   end
 
 
@@ -140,8 +143,11 @@ class Games::GameController < ApplicationController
   # @param   longitude
   # @param   range
   # @returns boolean
-  def self.out_circle_bounds?( center_x, center_y, x, y, radius )
-    ( ( x - center_x )**2 ) + ( ( y - center_y )**2 ) > radius**2
+  def out_circle_bounds?( center_x, center_y, x, y, radius )
+    center_x = center_x.to_f
+    center_y = center_y.to_f
+    radius = radius.to_f
+    ( x - center_x )**2 + ( y - center_y )**2 > radius**2
   end
 
 end

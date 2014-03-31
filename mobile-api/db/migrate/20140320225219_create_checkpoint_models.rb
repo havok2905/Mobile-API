@@ -1,8 +1,8 @@
 class CreateCheckpointModels < ActiveRecord::Migration
   def up
     create_table :checkpoints do |t|
-      t.string   :latitude
-      t.string   :longitude
+      t.float   :latitude
+      t.float   :longitude
       t.string   :name
       t.text     :description
       t.integer  :followed
