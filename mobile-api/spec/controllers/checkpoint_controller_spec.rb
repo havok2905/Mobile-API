@@ -9,7 +9,7 @@ describe Checkpoints::CheckpointController, :type => :controller do
     checkpoint_response['latitude'].should == checkpoint.latitude
     checkpoint_response['longitude'].should == checkpoint.longitude
     checkpoint_response['followed'].should == checkpoint.followed
-    checkpoint_response['last_visited'].should == checkpoint.last_visited
+    checkpoint_response['last_visited'].to_datetime.should == checkpoint.last_visited
     checkpoint_response['game_id'].should == checkpoint.game_id
   end
 
@@ -34,7 +34,7 @@ describe Checkpoints::CheckpointController, :type => :controller do
       get :index
       @checkpoints_response = JSON.parse(response.body)
       response_checkpoint_comparison @checkpoint_one, @checkpoints_response.first
-      response_checkpoint_comparison @checkpoint_two, @chckpoints_response.second
+      response_checkpoint_comparison @checkpoint_two, @checkpoints_response.last
     end
   end
 
