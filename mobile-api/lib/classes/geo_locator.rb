@@ -8,7 +8,7 @@ class GeoLocator
   # @param   y
   # @param   radius
   # @returns boolean
-  def in_circle_bounds?( center_x, center_y, x, y, radius )
+  def self.in_circle_bounds?( center_x, center_y, x, y, radius )
     radius = radius.to_f
     radius > distance_between_points( center_x, center_y, x, y )
   end
@@ -22,7 +22,7 @@ class GeoLocator
   # @param   y
   # @param   radius
   # @returns boolean
-  def on_circle_bounds?( center_x, center_y, x, y, radius )
+  def self.on_circle_bounds?( center_x, center_y, x, y, radius )
     radius = radius.to_f
     radius == distance_between_points( center_x, center_y, x, y )
   end
@@ -36,7 +36,7 @@ class GeoLocator
   # @param   y
   # @param   radius
   # @returns boolean
-  def out_circle_bounds?( center_x, center_y, x, y, radius )
+  def self.out_circle_bounds?( center_x, center_y, x, y, radius )
     radius = radius.to_f
     radius < distance_between_points( center_x, center_y, x, y )
   end
@@ -49,7 +49,7 @@ class GeoLocator
   # @param   x
   # @param   y
   # @returns float
-  def distance_between_points( center_x, center_y, x, y )
+  def self.distance_between_points( center_x, center_y, x, y )
     center_x = center_x.to_f
     center_y = center_y.to_f
     GeoDistance::Haversine.geo_distance( center_x, center_y, x, y ).miles

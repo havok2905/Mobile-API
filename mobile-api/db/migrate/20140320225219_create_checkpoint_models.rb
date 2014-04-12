@@ -31,7 +31,12 @@ class CreateCheckpointModels < ActiveRecord::Migration
     end
 
     create_table :checkpoint_associations_checkpoint_conditions do |t|
-      t.integer :checkpoint_id
+      t.integer  :checkpoint_association_id
+      t.integer  :checkpoint_condition_id
+    end
+
+    create_table :checkpoint_conditions_checkpoints do |t|
+      t.integer  :checkpoint_id
       t.integer  :checkpoint_condition_id
     end
   end

@@ -1,5 +1,7 @@
 class Games::GameController < ApplicationController
 
+  require 'geo_locator.rb'
+
   # Return all Games::Game objects in the database
   #
   # @type    GET
