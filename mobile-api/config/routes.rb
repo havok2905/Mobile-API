@@ -7,8 +7,11 @@ MobileApi::Application.routes.draw do
 
 
   namespace :checkpoints do
-    resources :checkpoint do
-    end
+    match 'checkpoints_by_game/:game_id', to: 'checkpoint#get_checkpoints_by_game', as: 'checkpoints_by_game', via: 'get'
+    match 'checkpoints_by_location/:latitude/:longitude', to: 'checkpoint#get_checkpoints_by_location', as: 'checkpoints_by_location', via: 'get'
+    match 'possible_next_checkpoints/:id', to: 'checkpoint#get_possible_next_checkpoints', as: 'possible_next_checkpoints', via: 'get'
+    match 'previous_checkpoint/:game_id', to: 'checkpoint#get_previous_checkpoint', as: 'previous_checkpoint', via: 'get'
+    resources :checkpoint
 
     resources :checkpoint_association do
     end
