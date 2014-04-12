@@ -40,7 +40,7 @@ class Games::GameController < ApplicationController
     @radius   = params[:range]
 
     @games = Games::Game.select { | game |
-      in_circle_bounds? @center_x, @center_y, game.latitude, game.longitude, @radius
+      GeoLocator.in_circle_bounds? @center_x, @center_y, game.latitude, game.longitude, @radius
     }
 
     respond_to do | format |
@@ -102,52 +102,6 @@ class Games::GameController < ApplicationController
         format.json { render json: { errors: @game.errors.full_messages, status: 422 } }
       end
     end
-  end
-
-
-  ## I totally ripped these formulas from online without testing them
-  ## This will probably bite me in the ass later :/
-  ## Will break these out into a map handling class later after I'm sure they work
-
-  # Return if a checkoint is within bounds of a set circle
-  #
-  # @param   latitude
-  # @param   longitude
-  # @param   range
-  # @returns boolean
-  def in_circle_bounds?( center_x, center_y, x, y, radius )
-    center_x = center_x.to_f
-    center_y = center_y.to_f
-    radius = radius.to_f
-    ( x - center_x )**2 + ( y - center_y )**2 < radius**2
-  end
-
-
-  # Return if a checkoint is on the border of a set circle
-  #
-  # @param   latitude
-  # @param   longitude
-  # @param   range
-  # @returns boolean
-  def on_circle_bounds?( center_x, center_y, x, y, radius )
-    center_x = center_x.to_f
-    center_y = center_y.to_f
-    radius = radius.to_f
-    ( x - center_x )**2 + ( y - center_y )**2 == radius**2
-  end
-
-
-  # Return if a checkoint is out of the of a set circle
-  #
-  # @param   latitude
-  # @param   longitude
-  # @param   range
-  # @returns boolean
-  def out_circle_bounds?( center_x, center_y, x, y, radius )
-    center_x = center_x.to_f
-    center_y = center_y.to_f
-    radius = radius.to_f
-    ( x - center_x )**2 + ( y - center_y )**2 > radius**2
   end
 
 end

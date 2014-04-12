@@ -9,6 +9,9 @@ gem 'sqlite3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+# Latitude and Longitude calculation handling
+gem 'geo-distance', '~> 0.2.0'
+
 group :development, :test do
 
   # RSPEC related gems
