@@ -3,6 +3,9 @@ Mobile-API
 
 This is the API for the game manager Mobile.
 
+Use This
+https://rubygems.org/gems/rails-erd
+
 #API METHOD LIST
 
 ##GAME
