@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20140703023947) do
     t.string "name"
     t.string "description"
     t.string "media_path"
-    t.string "type"
+    t.string "effect_type"
   end
 
   create_table "effects_items", force: true do |t|
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20140703023947) do
     t.string  "name"
     t.string  "description"
     t.string  "media_path"
+    t.string  "type"
     t.integer "checkpoint_id"
     t.integer "checkpoint_association_id"
   end

@@ -4,7 +4,7 @@ class BuildEffectModel < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :media_path
-      t.string :type
+      t.string :effect_type
     end
 
     create_table :effects_items do |t|

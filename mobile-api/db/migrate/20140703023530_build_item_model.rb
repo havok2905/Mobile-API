@@ -4,6 +4,7 @@ class BuildItemModel < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :media_path
+      t.string :type
       t.integer :checkpoint_id
       t.integer :checkpoint_association_id
     end
