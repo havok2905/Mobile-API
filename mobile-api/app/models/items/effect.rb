@@ -1,3 +1,3 @@
-class Items::Item < ModelBase
-  has_and_belongs_to_many :item, class_name: 'Items::Item'
+class Items::Effect < ModelBase
+  has_and_belongs_to_many :items, class_name: 'Items::Item'
 end

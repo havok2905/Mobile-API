@@ -7,16 +7,16 @@ class BuildEffectModel < ActiveRecord::Migration
       t.string :type
     end
 
-    create_table :items_effects do |t|
+    create_table :effects_items do |t|
       t.integer :item_id
       t.integer :effect_id
     end
-    add_index :items_effects, :item_id
-    add_index :items_effects, :effect_id
+    add_index :effects_items, :item_id
+    add_index :effects_items, :effect_id
   end
 
   def down
     drop_table :effects
-    drop_table :items_effectss
+    drop_table :effects_items
   end
 end
