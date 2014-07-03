@@ -9,6 +9,6 @@ describe Checkpoints::CheckpointCondition do
   subject { @condition }
 
   it { should have_and_belong_to_many :checkpoints }
-  it { should have_and_belong_to_many :checkpoint_associations }
+  it { should have_and_belong_to_many :associations }
 
 end
