@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320225630) do
+ActiveRecord::Schema.define(version: 20140703023947) do
 
   create_table "checkpoint_associations", force: true do |t|
     t.integer  "followed"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140320225630) do
   end
 
   create_table "checkpoint_associations_checkpoint_conditions", force: true do |t|
-    t.integer "checkpoint_id"
+    t.integer "checkpoint_association_id"
     t.integer "checkpoint_condition_id"
   end
 
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 20140320225630) do
     t.datetime "updated_at"
   end
 
+  create_table "checkpoint_conditions_checkpoints", force: true do |t|
+    t.integer "checkpoint_id"
+    t.integer "checkpoint_condition_id"
+  end
+
   create_table "checkpoints", force: true do |t|
     t.float    "latitude"
     t.float    "longitude"
@@ -52,6 +57,13 @@ ActiveRecord::Schema.define(version: 20140320225630) do
 
   add_index "checkpoints", ["game_id"], name: "index_checkpoints_on_game_id"
 
+  create_table "effects", force: true do |t|
+    t.string "name"
+    t.string "description"
+    t.string "media_path"
+    t.string "type"
+  end
+
   create_table "games", force: true do |t|
     t.string   "name"
     t.text     "description"
@@ -60,6 +72,25 @@ ActiveRecord::Schema.define(version: 20140320225630) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "items", force: true do |t|
+    t.string  "name"
+    t.string  "description"
+    t.string  "media_path"
+    t.integer "checkpoint_id"
+    t.integer "checkpoint_association_id"
+  end
+
+  add_index "items", ["checkpoint_association_id"], name: "index_items_on_checkpoint_association_id"
+  add_index "items", ["checkpoint_id"], name: "index_items_on_checkpoint_id"
+
+  create_table "items_effects", force: true do |t|
+    t.integer "item_id"
+    t.integer "effect_id"
+  end
+
+  add_index "items_effects", ["effect_id"], name: "index_items_effects_on_effect_id"
+  add_index "items_effects", ["item_id"], name: "index_items_effects_on_item_id"
 
   create_table "stories", force: true do |t|
     t.string   "name"

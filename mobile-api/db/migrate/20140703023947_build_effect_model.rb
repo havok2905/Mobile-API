@@ -1,6 +1,6 @@
 class BuildEffectModel < ActiveRecord::Migration
   def up
-    create_table :items do |t|
+    create_table :effects do |t|
       t.string :name
       t.string :description
       t.string :media_path
@@ -16,7 +16,7 @@ class BuildEffectModel < ActiveRecord::Migration
   end
 
   def down
-    drop_table :items
+    drop_table :effects
     drop_table :items_effectss
   end
 end
