@@ -8,6 +8,6 @@ class Checkpoints::CheckpointAssociation < ModelBase
   # Node associaitons need to stay two dimmensional, unless we expect
   # players to break the laws of physics. These are not magic nodes.
   def checkpoints_connected?
-    errors.add(:base, "You have unconnected nodes") unless checkpoints.size == 2
+    errors.add(:checkpoints, "You have unconnected nodes") unless self.checkpoints.size == 2
   end
 end
