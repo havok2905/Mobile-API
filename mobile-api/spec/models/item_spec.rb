@@ -17,11 +17,11 @@ describe Items::Item do
       @item.should have(1).error_on(:name)
     end
 
-    it 'should require a description'
+    it 'should require a media_path'
       @item.should have(1).error_on(:media_path)
     end
 
-    it 'should require a latitude'
+    it 'should require a type'
       @item.should have(1).error_on(:type)
     end
   end
