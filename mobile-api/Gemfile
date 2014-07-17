@@ -12,6 +12,9 @@ gem 'turbolinks'
 # Latitude and Longitude calculation handling
 gem 'geo-distance', '~> 0.2.0'
 
+# Support multiple table inheritance
+gem 'acts_as_relation', '~> 1.0'
+
 group :development, :test do
 
   # RSPEC related gems
