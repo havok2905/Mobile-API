@@ -5,9 +5,10 @@ class CreateStoryModels < ActiveRecord::Migration
       t.text   :description
       t.string :media_type
       t.string :media_path
+      t.integer :condition_id
       t.timestamps
     end
 
-    add_reference :stories, :checkpoint_associations
+    add_index :stories, :condition_id
   end
 end

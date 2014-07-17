@@ -98,9 +98,11 @@ ActiveRecord::Schema.define(version: 20140703023947) do
     t.text     "description"
     t.string   "media_type"
     t.string   "media_path"
+    t.integer  "condition_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "checkpoint_associations_id"
   end
+
+  add_index "stories", ["condition_id"], name: "index_stories_on_condition_id"
 
 end
