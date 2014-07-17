@@ -58,15 +58,19 @@ ActiveRecord::Schema.define(version: 20140703023947) do
   add_index "checkpoints", ["game_id"], name: "index_checkpoints_on_game_id"
 
   create_table "effects", force: true do |t|
-    t.string "name"
-    t.string "description"
-    t.string "media_path"
-    t.string "effect_type"
+    t.string   "name"
+    t.string   "description"
+    t.string   "media_path"
+    t.string   "effect_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "effects_items", force: true do |t|
-    t.integer "item_id"
-    t.integer "effect_id"
+    t.integer  "item_id"
+    t.integer  "effect_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "effects_items", ["effect_id"], name: "index_effects_items_on_effect_id"
@@ -86,15 +90,22 @@ ActiveRecord::Schema.define(version: 20140703023947) do
     t.boolean "can_self"
     t.boolean "can_target"
     t.integer "limit"
+    t.integer "item_id"
   end
 
+  add_index "health_items", ["item_id"], name: "index_health_items_on_item_id"
+
   create_table "items", force: true do |t|
-    t.string  "name"
-    t.string  "description"
-    t.string  "media_path"
-    t.string  "type"
-    t.integer "checkpoint_id"
-    t.integer "checkpoint_association_id"
+    t.integer  "as_item_id"
+    t.string   "as_item_type"
+    t.string   "name"
+    t.string   "description"
+    t.string   "media_path"
+    t.string   "type"
+    t.integer  "checkpoint_id"
+    t.integer  "checkpoint_association_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "items", ["checkpoint_association_id"], name: "index_items_on_checkpoint_association_id"
@@ -114,7 +125,10 @@ ActiveRecord::Schema.define(version: 20140703023947) do
 
   create_table "story_items", force: true do |t|
     t.boolean "priority"
+    t.integer "item_id"
   end
+
+  add_index "story_items", ["item_id"], name: "index_story_items_on_item_id"
 
   create_table "weapon_items", force: true do |t|
     t.integer "damage"
@@ -123,6 +137,9 @@ ActiveRecord::Schema.define(version: 20140703023947) do
     t.integer "integrity"
     t.boolean "timed"
     t.integer "time"
+    t.integer "item_id"
   end
+
+  add_index "weapon_items", ["item_id"], name: "index_weapon_items_on_item_id"
 
 end

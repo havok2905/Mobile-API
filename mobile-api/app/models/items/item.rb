@@ -1,4 +1,6 @@
 class Items::Item < ModelBase
+  acts_as_superclass
+  
   has_and_belongs_to_many :effects, class_name: 'Items::Effect'
   belongs_to :checkpoint, class_name: 'Checkpoints::Checkpoint'
   belongs_to :checkpoint_association, class_name: 'Checkpoints::CheckpointAssociation'

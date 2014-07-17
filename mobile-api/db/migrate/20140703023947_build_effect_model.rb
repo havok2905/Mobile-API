@@ -5,11 +5,13 @@ class BuildEffectModel < ActiveRecord::Migration
       t.string :description
       t.string :media_path
       t.string :effect_type
+      t.timestamps
     end
 
     create_table :effects_items do |t|
       t.integer :item_id
       t.integer :effect_id
+      t.timestamps
     end
     add_index :effects_items, :item_id
     add_index :effects_items, :effect_id
