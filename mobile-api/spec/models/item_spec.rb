@@ -1,8 +1,8 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
 describe Items::Item do
 
-  before do
+  before :each do
     @item = mock_model( Items::Item )
   end
 
@@ -13,15 +13,15 @@ describe Items::Item do
   it { should belong_to :checkpoint_association }
 
   describe 'validations' do
-    it 'should require a name'
+    it 'should require a name' do
       @item.should have(1).error_on(:name)
     end
 
-    it 'should require a media_path'
+    it 'should require a media_path' do
       @item.should have(1).error_on(:media_path)
     end
 
-    it 'should require a type'
+    it 'should require a type' do
       @item.should have(1).error_on(:type)
     end
   end

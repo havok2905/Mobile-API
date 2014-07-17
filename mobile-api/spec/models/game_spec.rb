@@ -1,8 +1,8 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
 describe Games::Game do
 
-  before do
+  before :each do
     @game = mock_model( Games::Game )
   end
 
@@ -11,19 +11,19 @@ describe Games::Game do
   it { should have_many :checkpoints }
 
   describe 'validations' do
-    it 'should require a name'
+    it 'should require a name' do
       @game.should have(1).error_on(:name)
     end
 
-    it 'should require a description'
+    it 'should require a description' do
       @game.should have(1).error_on(:description)
     end
 
-    it 'should require a latitude'
+    it 'should require a latitude' do
       @game.should have(1).error_on(:latitude)
     end
 
-    it 'should require a longitude'
+    it 'should require a longitude' do
       @game.should have(1).error_on(:longitude)
     end
   end

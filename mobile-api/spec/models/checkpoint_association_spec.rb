@@ -1,8 +1,8 @@
-require_relative 'spec_helper'
+require_relative '../spec_helper'
 
 describe Checkpoints::CheckpointAssociation do
 
-  before :eachs do
+  before :each do
     @association = mock_model( Checkpoints::CheckpointAssociation )
   end
 
