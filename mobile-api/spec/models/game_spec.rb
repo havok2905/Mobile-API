@@ -9,6 +9,7 @@ describe Games::Game do
   subject { @game }
 
   it { should have_many :checkpoints }
+  it { should have_one :inventory }
   it { should belong_to :user }
 
   describe 'validations' do

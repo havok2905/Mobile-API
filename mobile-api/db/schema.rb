@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717015444) do
+ActiveRecord::Schema.define(version: 20140717032948) do
 
   create_table "checkpoint_associations", force: true do |t|
     t.integer  "followed"
@@ -97,6 +97,25 @@ ActiveRecord::Schema.define(version: 20140717015444) do
   end
 
   add_index "health_items", ["item_id"], name: "index_health_items_on_item_id"
+
+  create_table "inventories", force: true do |t|
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "inventories", ["game_id"], name: "index_inventories_on_game_id"
+
+  create_table "inventory_items", force: true do |t|
+    t.integer  "inventory_id"
+    t.integer  "item_id"
+    t.string   "item_class"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "inventory_items", ["inventory_id"], name: "index_inventory_items_on_inventory_id"
+  add_index "inventory_items", ["item_id"], name: "index_inventory_items_on_item_id"
 
   create_table "items", force: true do |t|
     t.integer  "as_item_id"

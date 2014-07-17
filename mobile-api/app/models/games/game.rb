@@ -1,6 +1,7 @@
 class Games::Game < ModelBase
   has_many :checkpoints, class_name: 'Checkpoints::Checkpoint'
-  belongs_to :user, class_name: 'Games::User' 
+  belongs_to :user, class_name: 'Games::User'
+  has_one :inventory, class_name: 'Games::Inventory'
 
   validates_presence_of :name, message: 'You must include a name'
   validates_presence_of :description, message: 'You must include a description'

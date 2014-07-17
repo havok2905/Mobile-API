@@ -4,7 +4,6 @@ class BuildInventoryModel < ActiveRecord::Migration
       t.integer :game_id
       t.timestamps
     end
-    add_index :inventories, :user_id
     add_index :inventories, :game_id
 
     create_table :inventory_items do |t|
