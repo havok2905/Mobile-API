@@ -20,12 +20,21 @@ class Games::User < ModelBase
   end
 
   def valid_password?
+    if slef.password.size < 6
+      self.errors.add(:password, 'Please include a valid password')
+    end
   end
 
   def valid_email?
+    unless /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/.match
+      self.errors.add(:email, 'Please include a valid email')
+    end
   end
 
   def valid_username?
+    if where(:username).first.present?
+      self.errors.add(:username, 'Please pick a unique username')
+    end
   end
 
 end
