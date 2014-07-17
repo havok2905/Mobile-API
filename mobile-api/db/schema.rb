@@ -81,6 +81,13 @@ ActiveRecord::Schema.define(version: 20140703023947) do
     t.datetime "updated_at"
   end
 
+  create_table "health_items", force: true do |t|
+    t.integer "boost"
+    t.boolean "can_self"
+    t.boolean "can_target"
+    t.integer "limit"
+  end
+
   create_table "items", force: true do |t|
     t.string  "name"
     t.string  "description"
@@ -104,5 +111,18 @@ ActiveRecord::Schema.define(version: 20140703023947) do
   end
 
   add_index "stories", ["condition_id"], name: "index_stories_on_condition_id"
+
+  create_table "story_items", force: true do |t|
+    t.boolean "priority"
+  end
+
+  create_table "weapon_items", force: true do |t|
+    t.integer "damage"
+    t.boolean "splash"
+    t.boolean "radius"
+    t.integer "integrity"
+    t.boolean "timed"
+    t.integer "time"
+  end
 
 end
