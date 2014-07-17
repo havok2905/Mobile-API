@@ -20,7 +20,7 @@ class Games::InventoryItem < ModelBase
   end
 
   def item_model
-    self.item_class.constantize.where(id: self.item_id)
+    self.item_class.constantize.where(id: self.item_id).first
   end
 
 end

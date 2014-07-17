@@ -36,13 +36,4 @@ describe Games::InventoryItem do
     end
   end
 
-  describe 'methods' do
-    describe 'item_model' do
-      it 'should return an items class name as a constant' do
-        @inventory_item.item_class = 'Items::FakeItem'
-        @inventory.item_model.should == Items::FakeItem
-      end
-    end
-  end
-
 end
