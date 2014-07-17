@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 describe Checkpoints::CheckpointCondition do
 
   before :each do
-    @condition = mock_model( Checkpoints::CheckpointCondition )
+    @condition = Checkpoints::CheckpointCondition.new
   end
 
   subject { @condition }
@@ -14,12 +14,12 @@ describe Checkpoints::CheckpointCondition do
   describe 'validations' do
     describe 'belongs_to_something?' do
       it 'should be valid if it belongs to a checkpoint' do
-        @condition.checkpoints = [Checkpoints::Checkpoint.new]
+        @condition.checkpoints.push Checkpoints::Checkpoint.new
         @condition.should have(0).error_on(:checkpoints)
       end
 
       it 'should be valid if it belongs to an association' do
-        @condition.checkpoints = [Checkpoints::CheckpointAssociation.new]
+        @condition.associations.push Checkpoints::CheckpointAssociation.new
         @condition.should have(0).error_on(:associations)
       end
 

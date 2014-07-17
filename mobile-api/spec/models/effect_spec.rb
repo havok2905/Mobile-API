@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 describe Items::Effect do
 
   before :each do
-    @effect = mock_model( Items::Effect )
+    @effect = Items::Effect.new
   end
 
   subject { @effect }

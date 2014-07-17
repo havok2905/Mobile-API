@@ -5,7 +5,7 @@ class Checkpoints::CheckpointCondition < ModelBase
   validate :belongs_to_something?
 
   def belongs_to_something?
-    if self.checkpoints.nil? && self.associations.nil?
+    if self.checkpoints.empty? && self.associations.empty?
       self.errors.add(:checkpoints, 'A condition needs to belong to a checkpoint or association')
       self.errors.add(:associations, 'A condition needs to belong to a checkpoint or association')
     end

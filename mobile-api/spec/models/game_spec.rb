@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 describe Games::Game do
 
   before :each do
-    @game = mock_model( Games::Game )
+    @game = Games::Game.new
   end
 
   subject { @game }

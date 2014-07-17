@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 describe Checkpoints::Checkpoint do
 
   before :each do
-    @checkpoint = mock_model( Checkpoints::Checkpoint )
+    @checkpoint = Checkpoints::Checkpoint.new
   end
 
   subject { @checkpoint }

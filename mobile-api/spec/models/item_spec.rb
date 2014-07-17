@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 describe Items::Item do
 
   before :each do
-    @item = mock_model( Items::Item )
+    @item = Items::Item.new
   end
 
   subject { @item }

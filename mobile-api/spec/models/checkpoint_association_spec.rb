@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 describe Checkpoints::CheckpointAssociation do
 
   before :each do
-    @association = mock_model( Checkpoints::CheckpointAssociation )
+    @association = Checkpoints::CheckpointAssociation.new
   end
 
   subject { @association }
@@ -14,7 +14,7 @@ describe Checkpoints::CheckpointAssociation do
   describe 'validations' do
     describe 'checkpoints_connected?' do
       it 'should throw an error if you have less than two checkpoints' do
-        @association.checkpoints = [ Checkpoints::Checkpoint.new ]
+        @association.checkpoints.push Checkpoints::Checkpoint.new
         @association.should have(1).error_on(:checkpoints)
       end
 
