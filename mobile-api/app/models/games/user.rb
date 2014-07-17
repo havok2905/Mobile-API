@@ -1,3 +1,11 @@
+# This model represents a user that takes part in the game and helps create
+# games. Since this is just in the demo phase, there's no reason to add roles
+# or complex authentication. This is a quick standin until the time comes to use
+# Devise.
+#
+# McLean : 7-17-2014
+#
+
 class Games::User < ModelBase
   has_many :games, :class_name => 'Games::Game'
 

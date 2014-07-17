@@ -1,3 +1,9 @@
+# This model represents a single defined game. This game has a location
+# and a series of checkpoints that match up with the real world.
+#
+# McLean : 7-17-2014
+#
+
 class Games::Game < ModelBase
   has_many :checkpoints, class_name: 'Checkpoints::Checkpoint'
   belongs_to :user, class_name: 'Games::User'

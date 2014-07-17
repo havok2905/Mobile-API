@@ -1,3 +1,10 @@
+# Since item models need to be constant, we shouldn't associate them directly
+# with inventories. This is an intermediary model to manage the bridge.
+# There's probably better ways to make this work, and will be explored later.
+#
+# McLean : 7-17-2014
+#
+
 class Games::InventoryItem < ModelBase
   belongs_to :inventory, class_name: 'Games::Inventory'
 
