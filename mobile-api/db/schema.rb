@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703023947) do
+ActiveRecord::Schema.define(version: 20140717015444) do
 
   create_table "checkpoint_associations", force: true do |t|
     t.integer  "followed"
@@ -81,9 +81,12 @@ ActiveRecord::Schema.define(version: 20140703023947) do
     t.text     "description"
     t.float    "latitude"
     t.float    "longitude"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "games", ["user_id"], name: "index_games_on_user_id"
 
   create_table "health_items", force: true do |t|
     t.integer "boost"
@@ -129,6 +132,16 @@ ActiveRecord::Schema.define(version: 20140703023947) do
   end
 
   add_index "story_items", ["item_id"], name: "index_story_items_on_item_id"
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.boolean  "confirmed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "weapon_items", force: true do |t|
     t.integer "damage"

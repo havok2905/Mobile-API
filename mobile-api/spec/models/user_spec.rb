@@ -11,6 +11,18 @@ describe Games::User do
   it { should have_many :games }
 
   describe 'validations' do
+    it 'should require an email' do
+      @user.should have(1).error_on(:email)
+    end
+
+    it 'should require an username' do
+      @user.should have(1).error_on(:username)
+    end
+
+    it 'should require an encrypted_password' do
+      @user.should have(1).error_on(:encrypted_password)
+    end
+
     describe 'valid_password?' do
       it 'should pass with a long password' do
         @user.password = '123456'
@@ -37,9 +49,26 @@ describe Games::User do
     end
 
     describe 'valid_username?' do
-      # I'm not saving records in tests. I'm trusting that the where
-      # method, last method, and present? method work for this.
-      # This shouldn't need testing.
+      it 'should pass with a long username' do
+        @user.username = '123456'
+        @user.should have(0).error_on(:username)
+      end
+
+      it 'should pass with a short username' do
+        @user.username = '12345'
+        @user.should have(1).error_on(:username)
+      end
+    end
+
+    describe 'password_cleared' do
+      it 'should not save if the password is present' do
+        @user.password = 'test'
+        @user.should have(1).error_on(:password)
+      end
+
+      it 'should save if the password is not present' do
+        @user.should have(0).error_on(:password)
+      end
     end
   end
 
