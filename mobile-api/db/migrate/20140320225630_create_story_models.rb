@@ -1,5 +1,5 @@
 class CreateStoryModels < ActiveRecord::Migration
-  def change
+  def up
     create_table :stories do |t|
       t.string :name
       t.text   :description
@@ -10,5 +10,9 @@ class CreateStoryModels < ActiveRecord::Migration
     end
 
     add_index :stories, :condition_id
+  end
+
+  def down
+    drop_table :stories
   end
 end
