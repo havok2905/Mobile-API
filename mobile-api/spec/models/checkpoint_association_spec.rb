@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe Checkpoints::CheckpointAssociation do
 
-  before do
+  before :eachs do
     @association = mock_model( Checkpoints::CheckpointAssociation )
   end
 
