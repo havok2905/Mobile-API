@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140717032948) do
 
   create_table "checkpoint_conditions", force: true do |t|
     t.string   "name"
+    t.string   "condition_key"
+    t.string   "condition_type"
     t.text     "description"
     t.boolean  "achieved"
     t.datetime "created_at"
