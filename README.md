@@ -9,6 +9,9 @@ ARG like games through a mobile device.
 This app uses an ERD generation gem that spits out a PDF of the current schema.
 Run `bundle exec erd` and it will save a PDF in the root of the project.
 
+##Current Schema
+![erd diagram](http://puu.sh/aeWST/00325f903b.png)
+
 #Unit Tests
 
 This uses RSPEC. To run tests...
