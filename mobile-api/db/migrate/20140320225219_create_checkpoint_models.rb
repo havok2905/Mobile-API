@@ -20,6 +20,8 @@ class CreateCheckpointModels < ActiveRecord::Migration
 
     create_table :checkpoint_conditions do |t|
       t.string   :name
+      t.string   :condition_key
+      t.string   :condition_type
       t.text     :description
       t.boolean  :achieved
       t.timestamps
