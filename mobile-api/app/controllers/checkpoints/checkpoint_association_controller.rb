@@ -27,7 +27,7 @@ class Checkpoints::CheckpointAssociationController < ApplicationController
   end
 
 
-  # updates a Checkpoints::Checkpoint object based on id
+  # updates a Checkpoints::CheckpointAssociation object based on id
   #
   # @type    PUT
   # @param   id
