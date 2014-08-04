@@ -11,19 +11,18 @@ MobileApi::Application.routes.draw do
     match 'checkpoints_by_location/:latitude/:longitude', to: 'checkpoint#get_checkpoints_by_location', as: 'checkpoints_by_location', via: 'get'
     match 'possible_next_checkpoints/:id', to: 'checkpoint#get_possible_next_checkpoints', as: 'possible_next_checkpoints', via: 'get'
     match 'previous_checkpoint/:game_id', to: 'checkpoint#get_previous_checkpoint', as: 'previous_checkpoint', via: 'get'
+
     resources :checkpoint
-
-    resources :checkpoint_association do
-    end
-
-    resources :checkpoint_condition do
-    end
+    resources :checkpoint_association
+    resources :checkpoint_condition
   end
 
+  namespace :items do
+    resources :item
+  end
 
   namespace :stories do
-    resources :story do
-    end
+    resources :story
   end
 
 end
