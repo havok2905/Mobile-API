@@ -27,6 +27,24 @@ class Stories::StoryController < ApplicationController
   end
 
 
+  # creates a new Stories::Story object
+  #
+  # @type    POST
+  # @param   story
+  # @returns JSON response with the newly created Stories::Story object
+  def create
+    @story = Stories::Story.new ( params[:stories_story] )
+
+    respond_to do | format |
+      if @story.save
+        format.json { render json: @story }
+      else
+        format.json { render json: { errors: @story.errors.full_messages, status: 422 } }
+      end
+    end
+  end
+
+
   # updates a Stories::Story object based on id
   #
   # @type    PUT

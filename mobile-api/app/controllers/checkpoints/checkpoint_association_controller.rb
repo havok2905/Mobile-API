@@ -27,6 +27,24 @@ class Checkpoints::CheckpointAssociationController < ApplicationController
   end
 
 
+  # creates a new Checkpoints::CheckpointAssociation object
+  #
+  # @type    POST
+  # @param   checkpoint_association
+  # @returns JSON response with the newly created Checkpoints::CheckpointAssociation object
+  def create
+    @checkpoint_association = Checkpoints::CheckpointAssociation.new ( params[:checkpoints_checkpoint_association] )
+
+    respond_to do | format |
+      if @checkpoint_association.save
+        format.json { render json: @checkpoint_association }
+      else
+        format.json { render json: { errors: @checkpoint_association.errors.full_messages, status: 422 } }
+      end
+    end
+  end
+
+
   # updates a Checkpoints::CheckpointAssociation object based on id
   #
   # @type    PUT

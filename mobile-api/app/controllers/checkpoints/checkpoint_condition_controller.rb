@@ -27,6 +27,24 @@ class Checkpoints::CheckpointConditionController < ApplicationController
   end
 
 
+  # creates a new Checkpoints::CheckpointCondition object
+  #
+  # @type    POST
+  # @param   checkpoint_condition
+  # @returns JSON response with the newly created Checkpoints::CheckpointCondition object
+  def create
+    @checkpoint_condition = Checkpoints::CheckpointCondition.new ( params[:checkpoints_checkpoint_condition] )
+
+    respond_to do | format |
+      if @checkpoint_condition.save
+        format.json { render json: @checkpoint_condition }
+      else
+        format.json { render json: { errors: @checkpoint_condition.errors.full_messages, status: 422 } }
+      end
+    end
+  end
+
+
   # updates a Checkpoints::CheckpointCondition object based on id
   #
   # @type    PUT
