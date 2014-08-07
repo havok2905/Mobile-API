@@ -13,5 +13,4 @@ class Items::Item < ModelBase
 
   validates_presence_of :name, message: 'Your item must have a name'
   validates_presence_of :media_path, message: 'Your item must have an associated image'
-  validates_presence_of :type, message: 'Your item must have a sub class type'
 end

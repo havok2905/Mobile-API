@@ -91,11 +91,13 @@ ActiveRecord::Schema.define(version: 20140717032948) do
   add_index "games", ["user_id"], name: "index_games_on_user_id"
 
   create_table "health_items", force: true do |t|
-    t.integer "boost"
-    t.boolean "can_self"
-    t.boolean "can_target"
-    t.integer "limit"
-    t.integer "item_id"
+    t.integer  "boost"
+    t.boolean  "can_self"
+    t.boolean  "can_target"
+    t.integer  "limit"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "health_items", ["item_id"], name: "index_health_items_on_item_id"
@@ -125,7 +127,6 @@ ActiveRecord::Schema.define(version: 20140717032948) do
     t.string   "name"
     t.string   "description"
     t.string   "media_path"
-    t.string   "type"
     t.integer  "checkpoint_id"
     t.integer  "checkpoint_association_id"
     t.datetime "created_at"
@@ -148,8 +149,10 @@ ActiveRecord::Schema.define(version: 20140717032948) do
   add_index "stories", ["condition_id"], name: "index_stories_on_condition_id"
 
   create_table "story_items", force: true do |t|
-    t.boolean "priority"
-    t.integer "item_id"
+    t.boolean  "priority"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "story_items", ["item_id"], name: "index_story_items_on_item_id"
@@ -165,13 +168,15 @@ ActiveRecord::Schema.define(version: 20140717032948) do
   end
 
   create_table "weapon_items", force: true do |t|
-    t.integer "damage"
-    t.boolean "splash"
-    t.boolean "radius"
-    t.integer "integrity"
-    t.boolean "timed"
-    t.integer "time"
-    t.integer "item_id"
+    t.integer  "damage"
+    t.boolean  "splash"
+    t.boolean  "radius"
+    t.integer  "integrity"
+    t.boolean  "timed"
+    t.integer  "time"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "weapon_items", ["item_id"], name: "index_weapon_items_on_item_id"

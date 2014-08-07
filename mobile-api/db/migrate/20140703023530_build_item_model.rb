@@ -4,7 +4,6 @@ class BuildItemModel < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :media_path
-      t.string :type
       t.integer :checkpoint_id
       t.integer :checkpoint_association_id
       t.timestamps
@@ -15,6 +14,7 @@ class BuildItemModel < ActiveRecord::Migration
     create_table :story_items do |t|
       t.boolean :priority
       t.integer :item_id
+      t.timestamps
     end
     add_index :story_items, :item_id
 
@@ -24,6 +24,7 @@ class BuildItemModel < ActiveRecord::Migration
       t.boolean :can_target
       t.integer :limit
       t.integer :item_id
+      t.timestamps
     end
     add_index :health_items, :item_id
 
@@ -35,6 +36,7 @@ class BuildItemModel < ActiveRecord::Migration
       t.boolean :timed
       t.integer :time
       t.integer :item_id
+      t.timestamps
     end
     add_index :weapon_items, :item_id
   end
