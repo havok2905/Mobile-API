@@ -64,3 +64,48 @@ associations = Checkpoints::CheckpointAssociation.create([
     checkpoints: [checkpoints[0], checkpoints[2]]
   }
 ])
+
+story_items = Items::StoryItem.create([
+  {
+    name: 'hat',
+    media_path: 'hat.png'
+  },
+  {
+    name: 'duster',
+    media_path: 'duster.png'
+  },
+  {
+    name: 'gem',
+    media_path: 'gem.png'
+  }
+])
+
+weapon_items = Items::WeaponItem.create([
+  {
+    name: 'gun',
+    media_path: 'gun.png'
+  },
+  {
+    name: 'sword',
+    media_path: 'sword.png'
+  },
+  {
+    name: 'hammer',
+    media_path: 'hammer.png'
+  }
+])
+
+health_items = Items::HealthItem.create([
+  {
+    name: 'potion',
+    media_path: 'potion.png'
+  },
+  {
+    name: 'medkit',
+    media_path: 'medkit.png'
+  },
+  {
+    name: 'injection',
+    media_path: 'injection.png'
+  }
+])
