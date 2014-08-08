@@ -13,4 +13,8 @@ class Items::Item < ModelBase
 
   validates_presence_of :name, message: 'Your item must have a name'
   validates_presence_of :media_path, message: 'Your item must have an associated image'
+
+  scope :health,  -> { where as_item_type: 'Items::HealthItem' }
+  scope :weapons, -> { where as_item_type: 'Items::WeaponItem' }
+  scope :stories, -> { where as_item_type: 'Items::StoryItem'  }
 end
