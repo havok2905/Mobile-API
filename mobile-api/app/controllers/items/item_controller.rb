@@ -13,6 +13,45 @@ class Items::ItemController < ApplicationController
   end
 
 
+  # Return all Items::WeaponItem objects in the database
+  #
+  # @type    GET
+  # @returns JSON response with all Items::WeaponItem objects and children
+  def weapons
+    @items = Items::Item.weapons.all
+
+    respond_to do | format |
+      format.json { render json: @items }
+    end
+  end
+
+
+  # Return all Items::HealthItem objects in the database
+  #
+  # @type    GET
+  # @returns JSON response with all Items::HealthItem objects and children
+  def health
+    @items = Items::Item.health.all
+
+    respond_to do | format |
+      format.json { render json: @items }
+    end
+  end
+
+
+  # Return all Items::StoryItem objects in the database
+  #
+  # @type    GET
+  # @returns JSON response with all Items::StoryItem objects and children
+  def weapons
+    @items = Items::Item.stories.all
+
+    respond_to do | format |
+      format.json { render json: @items }
+    end
+  end
+
+
   # Return a single Items::Item by a given id
   #
   # @type    GET
