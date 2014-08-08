@@ -17,4 +17,8 @@ class Items::Item < ModelBase
   scope :health,  -> { where as_item_type: 'Items::HealthItem' }
   scope :weapons, -> { where as_item_type: 'Items::WeaponItem' }
   scope :stories, -> { where as_item_type: 'Items::StoryItem'  }
+
+  def item_types
+    ['Weapon', 'Health', 'Story']
+  end
 end
