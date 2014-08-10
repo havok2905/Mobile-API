@@ -9,10 +9,8 @@ describe Checkpoints::CheckpointController, :type => :controller do
     checkpoint_response['latitude'].should == checkpoint.latitude
     checkpoint_response['longitude'].should == checkpoint.longitude
     checkpoint_response['followed'].should == checkpoint.followed
-
-    # This drops the UTC from that datetime string. This is hacky, but it works. 
+    # This drops the UTC from that datetime string. This is hacky, but it works.
     checkpoint_response['last_visited'].to_datetime.should == checkpoint.last_visited.to_s
-
     checkpoint_response['game_id'].should == checkpoint.game_id
   end
 
@@ -54,7 +52,7 @@ describe Checkpoints::CheckpointController, :type => :controller do
   describe 'GET #show' do
     it "Responds with a valid checkpoint" do
       get :show, id: @checkpoint_one.id
-      @checkpoint_response = JSON.parse(response.body).first
+      @checkpoint_response = JSON.parse(response.body)
       response_checkpoint_comparison @checkpoint_one, @checkpoint_response
     end
   end
