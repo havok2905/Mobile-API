@@ -9,7 +9,7 @@ describe Checkpoints::CheckpointController, :type => :controller do
     checkpoint_response['latitude'].should == checkpoint.latitude
     checkpoint_response['longitude'].should == checkpoint.longitude
     checkpoint_response['followed'].should == checkpoint.followed
-    checkpoint_response['last_visited'].to_datetime.should == checkpoint.last_visited
+    checkpoint_response['last_visited'].to_datetime.should == checkpoint.last_visited.to_s
     checkpoint_response['game_id'].should == checkpoint.game_id
   end
 
@@ -20,7 +20,7 @@ describe Checkpoints::CheckpointController, :type => :controller do
   end
 
 
-  before :each do
+  before do
     request.env["HTTP_ACCEPT"] = 'application/json'
 
     @game = FactoryGirl.create(:game)
@@ -30,6 +30,7 @@ describe Checkpoints::CheckpointController, :type => :controller do
 
     @checkpoint_two = FactoryGirl.create(:checkpoint)
     @checkpoint_two.update_column(:game_id, 1)
+    @checkpoint_two.update_column(:last_visited, 1.day.ago.to_datetime)
 
     @checkpoints = [@checkpoint_one, @checkpoint_two]
 

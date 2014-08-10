@@ -17,7 +17,7 @@ describe Games::GameController, :type => :controller do
   end
 
 
-  before :each do
+  before do
     request.env["HTTP_ACCEPT"] = 'application/json'
     @game_one = FactoryGirl.create(:game)
     @game_two = FactoryGirl.create(:game)

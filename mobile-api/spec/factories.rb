@@ -16,7 +16,7 @@ FactoryGirl.define do
     latitude 28.600000
     longitude -81.339235
     followed 0
-    last_visited '2007-12-04 00:00:00'
+    last_visited DateTime.now
   end
 
   factory :association, class: Checkpoints::CheckpointAssociation do
