@@ -82,9 +82,9 @@ class Checkpoints::CheckpointController < ApplicationController
   # @param   id
   # @returns JSON response with a Checkpoints::Checkpoint object
   def get_previous_checkpoint
-    @checkpoint = Checkpoints::Checkpoint.where( game_id: params[:game_id] ).order(:last_visited).last
+    @checkpoint = Checkpoints::Checkpoint.where( game_id: params[:game_id] ).order(:last_visited).all
     respond_to do | format |
-      format.json { render json: @checkpoint, methods: [ :game, :associations ] }
+      format.json { render json: @checkpoint }
     end
   end
 

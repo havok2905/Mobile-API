@@ -9,7 +9,10 @@ describe Checkpoints::CheckpointController, :type => :controller do
     checkpoint_response['latitude'].should == checkpoint.latitude
     checkpoint_response['longitude'].should == checkpoint.longitude
     checkpoint_response['followed'].should == checkpoint.followed
+
+    # This drops the UTC from that datetime string. This is hacky, but it works. 
     checkpoint_response['last_visited'].to_datetime.should == checkpoint.last_visited.to_s
+
     checkpoint_response['game_id'].should == checkpoint.game_id
   end
 
