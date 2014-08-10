@@ -19,7 +19,7 @@ class Checkpoints::CheckpointController < ApplicationController
   # @param   id
   # @returns JSON response with a Checkpoints::Checkpoint object
   def show
-    @checkpoint = Checkpoints::Checkpoint.where( id:params[:id] ).all
+    @checkpoint = Checkpoints::Checkpoint.where( id:params[:id] ).last
 
     respond_to do | format |
       format.json { render json: @checkpoint, methods: [ :game, :associations ] }
