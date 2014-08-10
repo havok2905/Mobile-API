@@ -94,16 +94,4 @@ describe Checkpoints::CheckpointController, :type => :controller do
       response_checkpoint_comparison @checkpoint_two, @checkpoint_response.first
     end
   end
-
-
-  describe 'POST #create' do
-  end
-
-
-  describe 'PUT #update' do
-  end
-
-
-  describe 'DELETE #destroy' do
-  end
 end
