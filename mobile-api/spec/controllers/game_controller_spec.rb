@@ -53,16 +53,4 @@ describe Games::GameController, :type => :controller do
       response_game_comparison @game_two, @games_response.second
     end
   end
-
-
-  describe 'POST #create' do
-  end
-
-
-  describe 'PUT #update' do
-  end
-
-
-  describe 'DELETE #destroy' do
-  end
 end
