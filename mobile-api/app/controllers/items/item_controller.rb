@@ -43,7 +43,7 @@ class Items::ItemController < ApplicationController
   #
   # @type    GET
   # @returns JSON response with all Items::StoryItem objects and children
-  def weapons
+  def stories
     @items = Items::Item.stories.all
 
     respond_to do | format |
@@ -91,7 +91,7 @@ class Items::ItemController < ApplicationController
   # @param   item_type
   # @returns JSON response with the newly created Items::Item child object
   def create_child_item
-    if Items::Item.item_typs.include? params[:item_type] do
+    if Items::Item.item_typs.include? params[:item_type]
       item = "Items::#{params[:item_type]}Item".constantize
       @item = item.new (params[:items_item])
 
@@ -102,6 +102,7 @@ class Items::ItemController < ApplicationController
           format.json { render json: { errors: @item.errors.full_messages, status: 422 } }
         end
       end
+
     else
       @item = Item::Items.new
       @item.errors.add(:name, "Not a valid item type")
