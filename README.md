@@ -33,19 +33,11 @@ Location calculations are being done using the geo-distance gem.
 ##GAME
 
 ###GET
-* dashboard/game/
-* game_by_location/latitude/longitude/range/
-* checkpoint/id/
-* checkpoints/game/
-* checkpoint/latitude/longitude/
-* path/start/finish
-* condition_met/id/arg
-* possible_next_checkpoints/checkpoint/
-* previous_checkpoint/checkpoint/
-* story/id/
-* stories/checkpoint/
-* inventory/game/
-* item/type/item_id
+* game_by_location/:latitude/:longitude/:range/
+* checkpoints_by_game/:game_id/
+* checkpoints_by_location/:latitude/:longitude/
+* possible_next_checkpoints/:id/
+* previous_checkpoint/checkpoint/:game_id/
 
 ###PUT
 
