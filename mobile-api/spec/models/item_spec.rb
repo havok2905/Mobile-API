@@ -20,10 +20,6 @@ describe Items::Item do
     it 'should require a media_path' do
       @item.should have(1).error_on(:media_path)
     end
-
-    it 'should require a type' do
-      @item.should have(1).error_on(:type)
-    end
   end
 
 end
