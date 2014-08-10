@@ -4,6 +4,13 @@ Mobile-API
 This is the API for the game manager Mobile. It allows you to play real world
 ARG like games through a mobile device.
 
+#TODOS
+
+* Controller Tests
+* User Permissions
+* Incorperate Auth Gems
+* Handle API tokens
+
 #ERD
 
 This app uses an ERD generation gem that spits out a PDF of the current schema.
@@ -33,19 +40,11 @@ Location calculations are being done using the geo-distance gem.
 ##GAME
 
 ###GET
-* dashboard/game/
-* game_by_location/latitude/longitude/range/
-* checkpoint/id/
-* checkpoints/game/
-* checkpoint/latitude/longitude/
-* path/start/finish
-* condition_met/id/arg
-* possible_next_checkpoints/checkpoint/
-* previous_checkpoint/checkpoint/
-* story/id/
-* stories/checkpoint/
-* inventory/game/
-* item/type/item_id
+* game_by_location/:latitude/:longitude/:range/
+* checkpoints_by_game/:game_id/
+* checkpoints_by_location/:latitude/:longitude/
+* possible_next_checkpoints/:id/
+* previous_checkpoint/checkpoint/:game_id/
 
 ###PUT
 
