@@ -10,6 +10,7 @@ FactoryGirl.define do
 
   # Checkpoint models
   factory :checkpoint, class: Checkpoints::Checkpoint do
+    association :game, factory: :game, name: 'Lorem Ipsum', description: 'foo', latitude: 1, longitude: 1
     name 'Lorem Ipsum'
     description 'Lorem ipsum dolor set amet lorem ipsum dolor set amet lorem'
     latitude 28.600000
