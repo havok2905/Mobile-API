@@ -84,36 +84,6 @@ class Items::ItemController < ApplicationController
   end
 
 
-  # creates a new Items::Item child object
-  #
-  # @type    POST
-  # @param   item
-  # @param   item_type
-  # @returns JSON response with the newly created Items::Item child object
-  def create_child_item
-    if Items::Item.item_typs.include? params[:item_type]
-      item = "Items::#{params[:item_type]}Item".constantize
-      @item = item.new (params[:items_item])
-
-      respond_to do | format |
-        if @item.save
-          format.json { render json: @item }
-        else
-          format.json { render json: { errors: @item.errors.full_messages, status: 422 } }
-        end
-      end
-
-    else
-      @item = Item::Items.new
-      @item.errors.add(:name, "Not a valid item type")
-
-      respond_to do | format |
-        format.json { render json: { errors: @item.errors.full_messages, status: 422 } }
-      end
-    end
-  end
-
-
   # updates a Items::Item object based on id
   #
   # @type    PUT

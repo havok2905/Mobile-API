@@ -21,6 +21,7 @@ MobileApi::Application.routes.draw do
     match 'weapons', to: 'item#weapons', as: 'weapons', via: 'get'
     match 'health', to: 'item#health', as: 'health', via: 'get'
     match 'stories', to: 'item#stories', as: 'stories', via: 'get'
+    match 'create_child_item', to: 'item#create_child_item', as: 'create_child_item', via: 'post'
     resources :item
   end
 

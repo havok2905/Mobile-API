@@ -18,7 +18,7 @@ class Items::Item < ModelBase
   scope :weapons, -> { where as_item_type: 'Items::WeaponItem' }
   scope :stories, -> { where as_item_type: 'Items::StoryItem'  }
 
-  def item_types
+  def self.item_types
     ['Weapon', 'Health', 'Story']
   end
 end
