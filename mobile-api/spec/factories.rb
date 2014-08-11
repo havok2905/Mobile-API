@@ -37,4 +37,22 @@ FactoryGirl.define do
     media_type 'image'
     media_path 'image.png'
   end
+
+  # Weapon Item models
+  factory :weapon_item, class: Items::WeaponItem do
+    name 'weapon'
+    media_path 'foo/bar.img'
+  end
+
+  # Story Item models
+  factory :story_item, class: Items::StoryItem do
+    name 'story'
+    media_path 'foo/bar.img'
+  end
+
+  # Weapon Item models
+  factory :health_item, class: Items::HealthItem do
+    name 'health'
+    media_path 'foo/bar.img'
+  end
 end

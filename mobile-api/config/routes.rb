@@ -18,6 +18,9 @@ MobileApi::Application.routes.draw do
   end
 
   namespace :items do
+    match 'weapons', to: 'item#weapons', as: 'weapons', via: 'get'
+    match 'health', to: 'item#health', as: 'health', via: 'get'
+    match 'stories', to: 'item#stories', as: 'stories', via: 'get'
     resources :item
   end
 
