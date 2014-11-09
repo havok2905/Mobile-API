@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_default_response_format
 
+  def pundit_user
+    current_identity
+  end
+
 private
   def set_default_response_format
     request.format = :json

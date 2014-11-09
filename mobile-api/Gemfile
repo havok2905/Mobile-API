@@ -40,3 +40,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Pry
+gem 'pry', '~> 0.10.1'
+gem 'pry-doc', '~> 0.6.0'

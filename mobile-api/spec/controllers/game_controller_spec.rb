@@ -36,6 +36,14 @@ describe Games::GameController, :type => :controller do
   end
 
 
+  describe 'POST #create' do
+    it 'Creates a new game model' do
+      post :create, games_game: { name: 'foo', description: 'bar', latitude: 1, longitude: 1 }
+      puts JSON.parse(response.body)
+    end
+  end
+
+
   describe 'GET #show' do
     it "Responds with a valid game" do
       get :show, id: @game_one.id

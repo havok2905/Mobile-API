@@ -3,7 +3,7 @@ require_relative '../spec_helper'
 describe Games::Game do
 
   before :each do
-    @game = Games::Game.new
+    @game = mock_model(Games::Game)
   end
 
   subject { @game }
@@ -13,12 +13,12 @@ describe Games::Game do
   it { should belong_to :user }
 
   describe 'validations' do
-    it 'should require a name' do
-      @game.should have(1).error_on(:name)
+    it 'should be valid' do
+      @game.should validate_presence_of(:name).and_return(0)
     end
 
     it 'should require a description' do
-      @game.should have(1).error_on(:description)
+      @game.should validate_presence_of :description
     end
 
     it 'should require a latitude' do
