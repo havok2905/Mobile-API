@@ -1,6 +1,6 @@
 # This model represents an item that helps drive the story. They typically
 # are used in presenting clues to riddles or providing backstory or
-# atmosphere. 
+# atmosphere.
 #
 # McLean : 7-17-2014
 #
