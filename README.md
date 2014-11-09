@@ -4,13 +4,6 @@ Mobile-API
 This is the API for the game manager Mobile. It allows you to play real world
 ARG like games through a mobile device.
 
-#TODOS
-
-* Controller Tests
-* User Permissions
-* Incorperate Auth Gems
-* Handle API tokens
-
 #ERD
 
 This app uses an ERD generation gem that spits out a PDF of the current schema.
